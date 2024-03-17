@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nodejs-project-412709",
+  "private_key_id": "5be41c13d4acd93911c28aebdb732305794e5c93",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCwfaOQ6kkNYYj6\nyFh5yu34XGqhwzBpg+8DKjqf5sFhpLxv0NHudILom2+zWah64MmBWESinsm+w1IZ\n0Keg6OXv+L1Y7MK6Kch4WPFBChoPU7kwJMdIe9pcvWNCsyArg5csAh9TGm1YaMNc\nnV+C0PMKj9lYkr497UijL4YcyA1q6bjIXzEI5tf5hpuCJP1SmG3xDKESM9N2npCo\n8edbwjNKs5QN2zxEfCGnE6TYmDcDdEWoOCoC9iKO2tia+0JtG2JQx+9dD+C9sd2N\nkvikd6ZHisKcHhM9VewB60GZMW6pY17KYel4ttPH8BaA9ZFRDqXIGpyuytqq/o2T\n6K7SZ/IJAgMBAAECggEAIP07B6ljQkcK7aVpNErENHpBzD7J2883a+YG00C0wOWj\n+1qTAvlwRr5XILUPkvhVcgHnwmXf2/JydDTWQHOIF1TtP6Pxug55VFV7suaKfHbv\n1JnrThcod9FGrn8A8mFEbotvA3+bFL1wVu1rnu4jn8PHopC7UqP5wdbuQI78QxFg\nk+UCn/0P3Foq9L8PBPx8SvTmHK30kYsHkVCBDUZBpoj8CECgPZm9vp3F+uNIFyGM\nf7zOuWf14rvrtCPPsckhEjLzIqzZOF+Zv2O+HEKuD8fkguUJ877SlYTsd2bhKfAZ\nGJCDZUGX+fCzBtLgXFXYzz6bjIWdzsPUaN6+y9aHCQKBgQD15OaZAC/QH+XHzTTX\nsYBMDm9VjfoqsACrvsa+/26A/gH0Smimjyo9+BV6ZePNgx8mCrR0gHQP6rtslwX+\nC+6Dpd8gTTDAXa5REB+G5zZ8tplgtxtk3M2O7a3kDjt35JusswDZ4KNAebBNAzp7\n6g30PN46dr9Hiy64NoB4P6JyHwKBgQC3vog29opP6yPfI8fRnliYw7PM959Smme0\nFwOcbrtKC0UcKgBDPX3J7gf5s0DIvt3jMXyNYZmzyqmhw4TW7Kw+8AoXoKcp9muT\niGmB31fvNZ6phC3BS1NxbTET5EAjzr4vt0xqIPquW3v+ql7wzjv6XxHcUq/IstuD\nAyVDWcam1wKBgQCMQMy69l1PQ/JnfYeng8ofF5ivXvUTRiKL05w/MyjPkJKCybJZ\nVo2MnSV7FATUovawVyjIzr/kmEnhTV8QobOhCYp0PTMSdhzIhf7FjroIdoqTnL2W\nUU86OB2YV/nZj96vqcZRgAz96KsDslS4ey8MYW+MP1EpOJ0kW4n5jKpWlwKBgHUC\n4e3WjPgd7ycfuxUzeIo4Pp0tqAlLiPT3nvYU0jJyAN3RpX8sfpmEexG55Gyyl80h\n64aBfAcx7Vq1jzfrWjluVY78YNfpNFKskTwChhYwmEytfxHULVxTQ+i991aWRylN\n2lzPibRVUB46UuGZBDsKJe6fvY/azs2cyDMezdHbAoGBAMXCLOY05t7hnTenNKst\nyhXaVbupp2I4PvM+hMcFUBswD+wF0cIBiwj6mJkXF4HqMtE2i70fUZZ8EdeiPdUh\nEpmAPql4hsF1pSV7pr8vvwPDAQo5HtUz8HqoN9gVKP7JK/10CihONPOAhOYtnI6P\nqbtDALzO2seVgtV3OZyA0vYJ\n-----END PRIVATE KEY-----\n",
+  "client_email": "nodejs-ed@nodejs-project-412709.iam.gserviceaccount.com",
+  "client_id": "112004497666936727940",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nodejs-ed%40nodejs-project-412709.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
