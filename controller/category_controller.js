@@ -25,56 +25,64 @@ require("dotenv").config();
 
 exports.create =
   async (req, res) => {
-    uploadLocal.single("image")(req, res, async function (err) {
-      if (err) {
-        res.status(400).json({
-          status: false,
-          message: err.message || "Something went wrong!",
-
-        });
-      } else {
-        if (req.file == undefined) {
+    try {
+      uploadLocal.single("image")(req, res, async function (err) {
+        if (err) {
           res.status(200).json({
             status: false,
-            message: "Please upload category image!!",
+            message: err.message || "Something went wrong!",
+
           });
         } else {
-          try {
-            var data = await uploadModules.uploadToDrive(req.file, process.env.CATEGORY);
-            // console.log("got data", data);
-            const category = new category_Schema({
-              name: req.body.name,
-              image: `https://drive.google.com/uc?export=view&id=${data}`,
-            });
-            category
-              .save()
-              .then((data) => {
-                res.status(200).json({
-                  status: true,
-                  message: "category saved successfully",
-                  data: data,
-                });
-              })
-              .catch((errr) => {
-                res.status(200).json({
-                  status: false,
-                  message: errr.message || "Something went wrong!",
-
-                });
-
-              });
-
-          } catch (error) {
+          if (req.file == undefined) {
             res.status(200).json({
               status: false,
-              message: error.message || "Something went wrong!",
-
+              message: "Please upload category image!!",
             });
+          } else {
+            try {
+              var data = await uploadModules.uploadToDrive(req.file, process.env.CATEGORY);
+              // console.log("got data", data);
+              const category = new category_Schema({
+                name: req.body.name,
+                image: `https://drive.google.com/uc?export=view&id=${data}`,
+              });
+              category
+                .save()
+                .then((data) => {
+                  res.status(200).json({
+                    status: true,
+                    message: "category saved successfully",
+                    data: data,
+                  });
+                })
+                .catch((errr) => {
+                  res.status(200).json({
+                    status: false,
+                    message: errr.message || "Something went wrong!",
+
+                  });
+
+                });
+
+            } catch (error) {
+              res.status(200).json({
+                status: false,
+                message: error.message || "Something went wrong!",
+
+              });
+            }
           }
         }
-      }
-    })
+      })
 
+    } catch (error) {
+      res.status(200).json({
+        status: false,
+        message: error.message || "Something went wrong!",
+
+      });
+    }
 
   };
 

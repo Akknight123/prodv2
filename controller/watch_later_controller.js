@@ -2,7 +2,7 @@ const watch_schema = require("../model/saved_watch_model");
 const mongoose = require('mongoose');
 const firebaseConsole = require('./firebase_admin')
 exports.getAllVideos = (req, res) => {
-    console.log(req.query.uid);
+
     watch_schema.find({ "uid": req.query.uid })
         .populate({
             path: 'videos'
@@ -31,7 +31,8 @@ exports.getAllVideos = (req, res) => {
         });
 }
 exports.getWatchLaterRawData = (req, res) => {
-    watch_schema.find({ "uid": req.query.uid })
+    watch_schema
+        .find({ "uid": req.query.uid })
         .exec().then(videos => {
             if (videos.length == 0) {
                 res.status(200).json({
@@ -90,7 +91,7 @@ exports.getWatchlaterData = (req, res) => {
         });
 }
 exports.getAllPlaylist = (req, res) => {
-    // console.log(req.query.uid);
+
     watch_schema.find({ "uid": req.query.uid })
         .populate({
             path: 'playlist',
@@ -134,21 +135,21 @@ exports.addWatchLaterVideo = (req, res) => {
                 { new: true }, // return updated document
 
             ).then(doc => {
-                console.log(doc);
+
                 res.status(200).json({
                     status: true,
                     message: "Video Added successfully",
                     data: doc,
                 });
             }).catch(err => {
-                console.log('Something went wrong when updating the data');
+
                 res.status(200).json({
                     status: false,
                     message: err.message || "Something went wrong!",
                 });
             });
         } else {
-            console.log(doc);
+
             res.status(200).json({
                 status: true,
                 message: "Video already exists in library!",
@@ -157,7 +158,7 @@ exports.addWatchLaterVideo = (req, res) => {
         }
 
     }).catch(err => {
-        console.log('Something went wrong when updating the data');
+
         res.status(200).json({
             status: false,
             message: err.message || "Something went wrong!",
@@ -178,21 +179,21 @@ exports.watchLaterVideoRemove = (req, res) => {
                 { new: true }, // return updated document
 
             ).then(doc => {
-                console.log(doc);
+
                 res.status(200).json({
                     status: true,
                     message: "Video Removed successfully",
                     data: doc,
                 });
             }).catch(err => {
-                console.log('Something went wrong when updating the data');
+
                 res.status(200).json({
                     status: false,
                     message: err.message || "Something went wrong!",
                 });
             });
         } else {
-            console.log(doc);
+
             res.status(200).json({
                 status: true,
                 message: "Video not exists in library!",
@@ -201,7 +202,7 @@ exports.watchLaterVideoRemove = (req, res) => {
         }
 
     }).catch(err => {
-        console.log('Something went wrong when updating the data');
+
         res.status(200).json({
             status: false,
             message: err.message || "Something went wrong!",
@@ -226,21 +227,21 @@ exports.addWatchLaterPlaylist = (req, res) => {
                 { new: true }, // return updated document
 
             ).then(doc => {
-                console.log(doc);
+
                 res.status(200).json({
                     status: true,
                     message: "Playlist Added successfully",
                     data: doc,
                 });
             }).catch(err => {
-                console.log('Something went wrong when updating the data');
+
                 res.status(200).json({
                     status: false,
                     message: err.message || "Something went wrong!",
                 });
             });
         } else {
-            console.log(doc);
+
             res.status(200).json({
                 status: true,
                 message: "Playlist already exists in library!",
@@ -249,7 +250,7 @@ exports.addWatchLaterPlaylist = (req, res) => {
         }
 
     }).catch(err => {
-        console.log('Something went wrong when updating the data');
+
         res.status(200).json({
             status: false,
             message: err.message || "Something went wrong!",
@@ -268,21 +269,21 @@ exports.watchLaterPlaylistRemove = (req, res) => {
                 { new: true }, // return updated document
 
             ).then(doc => {
-                console.log(doc);
+
                 res.status(200).json({
                     status: true,
                     message: "Playlist removed successfully",
                     data: doc,
                 });
             }).catch(err => {
-                console.log('Something went wrong when updating the data');
+
                 res.status(200).json({
                     status: false,
                     message: err.message || "Something went wrong!",
                 });
             });
         } else {
-            console.log(doc);
+
             res.status(200).json({
                 status: true,
                 message: "Playlist not exists in library!",
@@ -291,7 +292,7 @@ exports.watchLaterPlaylistRemove = (req, res) => {
         }
 
     }).catch(err => {
-        console.log('Something went wrong when updating the data');
+
         res.status(200).json({
             status: false,
             message: err.message || "Something went wrong!",

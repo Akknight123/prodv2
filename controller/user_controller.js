@@ -6,7 +6,7 @@ require("dotenv").config();
 
 exports.getSingleUser = (req, res) => {
   user_schema.findOne({ uid: req.query.uid }).then(user => {
-    console.log("user data", user);
+
     res.status(200).json({
       status: true,
       message: "User Successfull",
@@ -21,6 +21,38 @@ exports.getSingleUser = (req, res) => {
       });
     });
 }
+exports.getSingleUserByObjId = (req, res) => {
+  user_schema.findById(req.query.id).then(user => {
+    res.status(200).json({
+      status: true,
+      message: "User Successfull",
+      data: user,
+    });
+  })
+    .catch(err => {
+      console.log(err);
+      res.status(200).json({
+        status: false,
+        message: 'User does not exist', err,
+      });
+    });
+}
+/*   user_schema.findOne({ uid: req.query.uid }).then(user => {
+
+    res.status(200).json({
+      status: true,
+      message: "User Successfull",
+      data: user,
+    });
+  })
+    .catch(err => {
+      console.log(err);
+      res.status(200).json({
+        status: false,
+        message: 'User does not exist', err,
+      });
+    }); */
+
 exports.create = (req, res) => {
   const userModel = new user_schema({
     uid: req.body.uid,
@@ -69,7 +101,36 @@ exports.create = (req, res) => {
 
 };
 
+exports.addToken = async (req, res) => {
+  try {
+    user_schema.findOneAndUpdate(
+      { uid: req.body.uid }, // search query
+      { $set: { fcm_token: req.body.fcmToken } }, // fields to update
+      { new: true })
+      .then((data) => {
+        res.status(200).json({
+          status: true,
+          message: "token updated successfully",
+          data: data,
+        });
+      })
+      .catch((errr) => {
+        res.status(200).json({
+          status: false,
+          message: errr.message || "Something went wrong!",
 
+        });
+
+      });
+
+  } catch (error) {
+    res.status(200).json({
+      status: false,
+      message: error.message || "Something went wrong!",
+
+    });
+  }
+}
 exports.addName = (req, res) => {
   user_schema.findOneAndUpdate(
     { uid: req.body.uid }, // search query

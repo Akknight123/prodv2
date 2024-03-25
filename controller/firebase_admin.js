@@ -13,4 +13,15 @@ async function sendPushNotification(fcmToken, title, body) {
     })
 }
 
-module.exports = { sendPushNotification }
+async function sendToMultiple(registrationTokens) {
+    const message = {
+        data: { score: '850', time: '2:45' },
+        tokens: registrationTokens,
+    };
+    firebaseapp
+        .sendMulticast(message)
+        .then((response) => {
+            console.log(response.successCount + ' messages were sent successfully');
+        });
+}
+module.exports = { sendPushNotification, sendToMultiple }

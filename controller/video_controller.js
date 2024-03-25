@@ -5,13 +5,13 @@ exports.create = (req, res) => {
 
     axios.get(`https://www.youtube.com/oembed?url=${req.body.url}&format=json`, {}).then(response => {
         // console.log("data : ", response.data);
+        /* thumbnailUrl: response.data['thumbnail_url'],
+                details: response.data */
         if (response.status == 200) {
             const video = new Video_Schema({
                 url: req.body.url,
                 subcategory: req.body.subcatId,
                 title: response.data['title'],
-                thumbnailUrl: response.data['thumbnail_url'],
-                details: response.data
             });
             /*  res.status(200).json({
                  status: true,

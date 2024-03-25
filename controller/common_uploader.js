@@ -50,6 +50,13 @@ async function uploadToDrive(anyFile, folderPath) {
       fileId: response.data.id,
       fields: 'id',
     });
+    fs.unlink(image.destination + "/" + image.originalname, (err) => {
+      if (err) {
+        // console.log("file deleted err", image.destination + "/" + image.originalname);
+      } else {
+        // console.log("file deleted suces", image.destination + "/" + image.originalname);
+      }
+    })
     return response.data.id;
   } catch (err) {
     console.log(err);
