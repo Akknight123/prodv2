@@ -65,7 +65,7 @@ exports.create =
                     });
                 } else {
                     try {
-                        var data = await uploadModules.uploadToDrive(req.file, process.env.SUBCATEGORY);
+                        var data = await uploadModules.uploadToDrive(req.file, process.env.FOLDERID);
                         // console.log("got data", data);
                         const category = new subcategory_Schema({
                             name: req.body.name,

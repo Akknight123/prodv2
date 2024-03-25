@@ -173,7 +173,7 @@ exports.update =
           });
         } else {
           try {
-            var data = await uploadModules.uploadToDrive(req.file, process.env.CATEGORY);
+            var data = await uploadModules.uploadToDrive(req.file, process.env.FOLDERID);
             // console.log("got data", data);
 
             user_schema.findOneAndUpdate(

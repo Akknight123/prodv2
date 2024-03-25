@@ -28,7 +28,7 @@ mongoose.Promise = global.Promise;
 
 // Connecting to the database
 mongoose
-  .connect(process.env.DB_URL)
+  .connect(process.env.DBURL)
   .then(() => {
     console.log("Successfully connected to the database");
   })

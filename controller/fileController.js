@@ -37,7 +37,7 @@ const uploadFileA = async (req, res) => {
           0,
           image.originalname.lastIndexOf(".")
         ),
-        parents: [process.env.FOLDER_ID], // the ID of the folder you get from createFolder.js is used here
+        parents: [process.env.FOLDERID], // the ID of the folder you get from createFolder.js is used here
       };
 
       const media = {
@@ -76,7 +76,7 @@ const uploadFileA = async (req, res) => {
 
 const getAllFiles = async (req, res) => {
   try {
-    const q = `'${process.env.FOLDER_ID}' in parents`;
+    const q = `'${process.env.FOLDERID}' in parents`;
     const response = await driveService.files.list({
       q: q, // comment this if you want all possible files
       fields: "files(id, name)",
@@ -91,7 +91,7 @@ const deleteFile = async (req, res) => {
   const fileId = req.body.fileId; // the file to delete
   const response = await driveService.files.delete({
     fileId: fileId,
-    parentId: `${process.env.FOLDER_ID}`,
+    parentId: `${process.env.FOLDERID}`,
   });
   res.send(response);
 };
@@ -111,7 +111,7 @@ const updateFile = async (req, res) => {
 
     const response = await driveService.files.update({
       resource: { name: image.originalname },
-      addParents: `${process.env.FOLDER_ID}`,
+      addParents: `${process.env.FOLDERID}`,
       fileId: fileId,
       media: media,
       fields: "id",
@@ -134,7 +134,7 @@ const uploadFile = async (req, res) => {
             0,
             image.originalname.lastIndexOf(".")
           ),
-          parents: [process.env.FOLDER_ID], // the ID of the folder you get from createFolder.js is used here
+          parents: [process.env.FOLDERID], // the ID of the folder you get from createFolder.js is used here
         }; /* = {
           name:'my1drivetext.txt',    
           parents:['1qGnjuyM0jr2LQeOEkQqROOdauhE3GWgi'] // A folder ID to which file will get uploaded
